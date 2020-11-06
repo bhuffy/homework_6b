@@ -1,0 +1,603 @@
+.header {
+    grid-column: 1 / -1;
+    height: var(--space-8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    position: absolute;
+    width: 90%;
+}
+
+/* navigation */
+.nav {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav__item {
+    display: inline;
+    margin-right: var(--space-6);
+    color: white;
+    font-family: "DIN";
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.nav__item:hover {
+    opacity: 1;
+}
+
+.nav__item:last-child {
+    margin-right: 0;
+}
+
+.nav__cart {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__count {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.cart__line {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cart-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-4);
+    border: 1px solid var(--neutral-300);
+    border-radius: var(--space-1);
+}
+
+.cart-item__content {
+    display: flex;
+}
+
+.cart-item__cross {
+    cursor: pointer;
+}
+
+.cart-item__img {
+    max-width: 200px;
+    height: auto;
+}
+
+.cart-item__color-container {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item__color {
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+}
+
+.cart-item__color--strawberry { background-color: var(--strawberry); }
+.cart-item__color--blackberry { background-color: var(--blackberry); }
+.cart-item__color--crazyberry { background-color: var(--crazyberry); }
+.cart-item__color--fire-orange { background-color: var(--fire-orange); }
+.cart-item__color--lightberry { background-color: var(--lightberry); }
+.cart-item__color--teal { background-color: var(--teal); }
+
+
+.cart-item__quantity-btn {
+    display: inline-block;
+    color: var(--off-black);
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--neutral-200);
+    border: none;
+}
+
+.cart-item__quantity-input {
+    display: inline-block;
+    width: var(--space-5);
+    color: var(--off-black);
+    text-align: center;
+    padding: var(--space-1);
+    background-color: var(--neutral-200);
+    border: none;
+    border-radius: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.logo {
+    width: var(--space-10);
+}
+
+/* hero */
+.hero {
+    position: relative;
+    height: 90vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../public/images/cat-harness.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--off-black); /* if img not available */
+}
+
+.hero__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* buttons */
+button {
+    border: none;
+}
+.btn {
+    padding: var(--space-3) var(--space-6);
+    background: transparent;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    transform: translateZ(0);
+    transition: color 1000ms;
+    cursor: pointer;
+}
+
+.btn--primary {
+    border: 2px solid var(--neutral-100);
+    color: white;
+}
+
+.btn--primary:hover {
+    color: var(--off-black);
+}
+
+.btn--primary::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: white;
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition-property: transform;
+    transition: 300ms ease-out;
+}
+
+.btn--primary:hover::before {
+    transform: scaleY(1);
+}
+
+.btn--secondary {
+    border: 2px solid var(--off-black);
+    color: var(--off-black);
+}
+
+.btn--secondary:hover {
+    color: white;
+}
+
+.btn--secondary::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--off-black);
+    transform: scaleY(0);
+    transform-origin: 50% 100%;
+    transition-property: transform;
+    transition: 300ms ease-out;
+}
+
+.btn--secondary:hover::before {
+    transform: scaleY(1);
+}
+
+/* images */
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* home sections */
+.home-section {
+    padding-top: var(--space-9);
+    padding-bottom: var(--space-9);
+}
+
+.home-section__blurb {
+    padding: var(--space-8) var(--space-5);
+    background-color: white;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+}
+
+.home-section__img {
+    z-index: 1;
+}
+
+.home-section__blurb--1 { 
+    grid-column: 2 / span 5;
+    grid-row: 2 / span 2;
+}
+
+.home-section__blurb--2 {
+    grid-column: 7 / span 5;
+    grid-row: 2 / span 2;
+}
+
+.home-section__blurb--3 {
+    grid-column: 2 / span 5;
+    grid-row: 2 / span 2;
+}
+
+.home-section__img--1 {
+    grid-column: 6 / span 5;
+    grid-row: 1 / span 1;
+}
+.home-section__img--2 {
+    grid-column: 3 / span 5;
+    grid-row: 1 / span 1;
+}
+.home-section__img--3 {
+    grid-column: 6 / span 5;
+    grid-row: 1 / span 1;
+}
+
+/* footer */
+footer {
+    background: var(--off-black);
+}
+
+.footer__logo {
+    width: 80px;
+}
+
+.footer__title {
+    font-family: 'DIN';
+    margin-bottom: var(--space-5);
+    text-transform: uppercase;
+    color: white;
+}
+
+.footer__nav {
+    list-style-type: none;
+}
+
+.footer__item {
+    color: white;
+    opacity: 0.8;
+    margin-bottom: var(--space-3);
+}
+
+.footer__item:hover {
+    opacity: 1;
+}
+
+/* ============================== */
+
+/* category-header */
+.category-header {
+    position: relative;
+    height: 40vh;
+}
+
+.category-header--cats {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../public/images/cat-harness.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--off-black); /* if img not available */
+}
+
+.category-header--dogs {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../public/images/dogs-header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--off-black); /* if img not available */
+}
+
+.category-header--accessories {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../public/images/accessories-header.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--off-black); /* if img not available */
+}
+
+.category-header--cart {
+    background-color: var(--off-black); /* if img not available */
+}
+
+.category-header__content {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.category__sidebar {
+    grid-column: span 2;
+}
+
+
+.category__content {
+    grid-column: span 8;
+}
+
+.checkbox-list {
+    list-style: none;
+    margin-top: var(--space-2);
+}
+
+.color-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 48px;
+    cursor: pointer;
+}
+
+.color-box--active {
+    border: 3px solid var(--neutral-300);
+}
+
+.color-box:not(:last-child) {
+    margin-right: var(--space-2);
+}
+
+.color-box--strawberry { background-color: var(--strawberry); }
+.color-box--blackberry { background-color: var(--blackberry); }
+.color-box--crazyberry { background-color: var(--crazyberry); }
+.color-box--fire-orange { background-color: var(--fire-orange); }
+.color-box--lightberry { background-color: var(--lightberry); }
+.color-box--teal { background-color: var(--teal); }
+
+/* ============================== */
+
+
+/* The container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 32px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: var(--neutral-300);
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 6px;
+    height: 12px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+
+/* ============================== */
+
+/* product */
+.product {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(50% 50% at 50% 50%, #333333 0%, #000000 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: var(--off-black); /* if img not available */
+}
+
+.product__controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.product__img {
+    width: 100%;
+}
+
+.product__img--tiny { transform: scale(0.55)}
+.product__img--small { transform: scale(0.70)}
+.product__img--medium { transform: scale(0.85)}
+.product__img--large { transform: scale(1)}
+
+.product-select {
+    padding: var(--space-3);
+    color: white;
+    background-color: var(--neutral-900);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.product-select--active {
+    background-color: var(--neutral-900);
+    box-shadow: 0 0 0 2px white;
+}
+
+/* flex */
+.flex-justify-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-justify-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.align-items-center {
+    display: flex;
+    align-items: center;
+}
+
+/* ============================== */
+
+.cart__items {
+    grid-column: span 8;
+    margin-right: var(--space-7);
+}
+
+.cart__summary {
+    grid-column: span 4;
+}
+
+input {
+    display: block;
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-2);
+    padding: var(--space-3);
+    border: none;
+    background-color: var(--neutral-100);
+    border-radius: var(--space-1);
+    width: 100%;
+}
+
+input[type="text"]:hover {
+    background-color: var(--neutral-200);
+}
+
+
+/* ============================== */
+
+
+.quantity-btn {
+    display: inline-block;
+    color: white;
+    padding: var(--space-3) var(--space-3);
+    background-color: var(--neutral-900);
+    border: none;
+}
+
+.quantity-input {
+    display: inline-block;
+    width: var(--space-7);
+    color: white;
+    text-align: center;
+    padding: var(--space-3) var(--space-2);
+    background-color: var(--neutral-900);
+    border: none;
+    border-radius: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.flex-horizontal-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================== */
+
+.color-checkmark {
+    display:inline-block;
+    width: 24px;
+    height:24px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.color-checkmark-stem {
+    position: absolute;
+    width: 4px;
+    height: 24px;
+    background-color: white;
+    left: 12px;
+    top: 0px;
+}
+
+.color-checkmark-kick {
+    position: absolute;
+    width: 12px;
+    height: 4px;
+    background-color:white;
+    left: 4px;
+    top: 20px;
+}
