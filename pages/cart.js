@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useEffect, useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
 import Head from 'next/head'
@@ -14,13 +14,19 @@ import CartItem from '../components/CartItem'
 export default function Cart() {
 
     const [cart, setCart] = useContext(CartContext);
-    const totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
+    let totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
 
     // Add this item to cart
     const removeFromCart = (id) => {
+        console.log(cart);
         const newCart = cart.filter((item) => item.id != id);
         setCart(newCart);
+        console.log(newCart);
     }
+
+    useEffect(() => {
+        totalPrice = cart.reduce((acc, curr) => acc + curr.price * curr.quantity, 0);
+    }, [cart])
 
     return (
         <>
@@ -54,6 +60,7 @@ export default function Cart() {
                         cart.map((item, index) =>
                             <CartItem 
                                 key={item.id}
+                                id={item.id}
                                 src={item.src}
                                 alt={item.alt}
                                 name={item.name}

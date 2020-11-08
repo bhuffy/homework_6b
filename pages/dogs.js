@@ -12,7 +12,7 @@ import CategoryProduct from '../components/CategoryProduct'
 export default function Dogs() {
     const products = [
         {
-            id: 1,
+            id: "dog_1",
             src: '/images/dog-1.png',
             alt: "dog harness",
             name: "Dog Harness",
@@ -21,7 +21,7 @@ export default function Dogs() {
             colors: ['strawberry', 'blackberry', 'crazyberry', 'fire-orange'],
         },
         {
-            id: 2,
+            id: "accessory_2",
             src: '/images/dog-2.png',
             alt: "water storage pack",
             name: "Water Storage Pack",
@@ -30,7 +30,7 @@ export default function Dogs() {
             colors: ['strawberry', 'blackberry', 'crazyberry', 'fire-orange', 'lightberry', 'teal'],
         },
         {
-            id: 3,
+            id: "accessory_1",
             src: '/images/dog-3.png',
             alt: "food storage pack",
             name: "Food Storage Pack",

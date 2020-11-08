@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+
+import { CartContext } from '../context/CartContext';
 
 export default function CartItem({ id, src, alt, name, slug, price, color, size, quantity, onRemove }) {
     // set quantity
     const [itemQuantity, setItemQuantity] = useState(quantity);
     
     // get cart context
-    // const [cart, setCart] = useContext(CartContext);
+    const [cart, setCart] = useContext(CartContext);
 
     // increase quantity input change
     const handleIncreaseQuantity = () => {
-        if (itemQuantity + 1 > 0) {
-            setItemQuantity(itemQuantity + 1);
-        }
-        // need to update cart
-        // cart[id].quantity(itemQuantity);
-        // const updatedCart = [];
-        // setCart(updatedCart);
+        setItemQuantity(prevState => prevState + 1);
     }
 
     // decrease quantity input change
     const handleDecreaseQuantity = () => {
         if (itemQuantity - 1 > 0) {
-            setItemQuantity(itemQuantity - 1);
+            setItemQuantity(prevState => prevState - 1);
         }
-        // need to update cart
-        // cart[id].quantity(itemQuantity);
-        // const updatedCart = [];
-        // setCart(updatedCart);
     }
+
+    // update cart item quantity
+    useEffect(() => {
+        let item = cart.find(x => x.id === id);
+        item.quantity = itemQuantity;
+        setCart([...cart.filter((i) => i.id != id), item]);
+
+    }, [itemQuantity])
 
     return (
         <>
@@ -62,7 +62,7 @@ export default function CartItem({ id, src, alt, name, slug, price, color, size,
 }
 
 CartItem.propTypes = {
-    id: PropTypes.oneOf([PropTypes.number, PropTypes.string]),
+    id: PropTypes.string,
     src: PropTypes.string,
     alt: PropTypes.string,
     name: PropTypes.string,

@@ -12,7 +12,7 @@ import CategoryProduct from '../components/CategoryProduct'
 export default function Cats() {
     const products = [
         {
-            id: 1,
+            id: "cat_1",
             src: '/images/cat-1.png',
             alt: "cat harness",
             name: "Cat Harness",
@@ -21,7 +21,7 @@ export default function Cats() {
             colors: ['strawberry', 'blackberry', 'crazyberry', 'fire-orange'],
         },
         {
-            id: 2,
+            id: "accessory_2",
             src: '/images/cat-2.png',
             alt: "water storage pack",
             name: "Water Storage Pack",
@@ -30,7 +30,7 @@ export default function Cats() {
             colors: ['strawberry', 'blackberry', 'crazyberry', 'fire-orange', 'lightberry', 'teal'],
         },
         {
-            id: 3,
+            id: "accessory_1",
             src: '/images/cat-3.png',
             alt: "food storage pack",
             name: "Food Storage Pack",

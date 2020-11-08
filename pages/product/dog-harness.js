@@ -12,7 +12,7 @@ import {CartContext} from '../../context/CartContext'
 export default function DogHarness() {
     const SIZES = ['tiny', 'small', 'medium', 'large'];
     const ITEM = {
-        id: 1,
+        id: "dog_1",
         src: 'images/dog-1.png',
         alt: "dog harness",
         name: "Dog Harness",
@@ -57,8 +57,17 @@ export default function DogHarness() {
             color,
             size,
         };
-        setCart([...cart, cartItem]);
-        setQuantity(1);
+        cartItem.id = cartItem.id + cartItem.color + cartItem.size;
+
+        // check if item already exists and update
+        let item = cart.find(x => x.id === cartItem.id);
+        if (item !== undefined) {
+            item.quantity += 1;
+            setCart([...cart.filter((item) => item.id != cartItem.id), item]);
+        } else {
+            setCart([...cart, cartItem]);
+            setQuantity(1);
+        }
     }
 
   return (

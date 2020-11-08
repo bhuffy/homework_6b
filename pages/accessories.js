@@ -12,7 +12,7 @@ import CategoryProduct from '../components/CategoryProduct'
 export default function Accessories() {
     const products = [
         {
-            id: 1,
+            id: "accessory_1",
             src: 'images/accessory-1.png',
             alt: "water storage pack",
             name: "Water Storage Pack",
@@ -21,7 +21,7 @@ export default function Accessories() {
             colors: ['strawberry', 'blackberry', 'crazyberry', 'fire-orange', 'lightberry', 'teal'],
         },
         {
-            id: 2,
+            id: "accessory_2",
             src: 'images/accessory-2.png',
             alt: "food storage pack",
             name: "Food Storage Pack",

@@ -12,7 +12,7 @@ import {CartContext} from '../../context/CartContext'
 export default function WaterStoragePack() {
     const SIZES = ['tiny', 'small', 'medium', 'large'];
     const ITEM = {
-        id: 1,
+        id: "accessory_2",
         src: 'images/accessory-1.png',
         alt: "water storage pack",
         name: "Water Storage Pack",
@@ -57,8 +57,17 @@ export default function WaterStoragePack() {
             color,
             size,
         };
-        setCart([...cart, cartItem]);
-        setQuantity(1);
+        cartItem.id = cartItem.id + cartItem.color + cartItem.size;
+
+        // check if item already exists and update
+        let item = cart.find(x => x.id === cartItem.id);
+        if (item !== undefined) {
+            item.quantity += 1;
+            setCart([...cart.filter((item) => item.id != cartItem.id), item]);
+        } else {
+            setCart([...cart, cartItem]);
+            setQuantity(1);
+        }
     }
 
   return (
