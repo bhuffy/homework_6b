@@ -57,7 +57,7 @@ export default function Cart() {
                     {
                         cart.map((item, index) =>
                             <CartItem 
-                                key={item.id}
+                                key={item.index}
                                 id={item.id}
                                 src={item.src}
                                 alt={item.alt}
