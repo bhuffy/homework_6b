@@ -18,10 +18,8 @@ export default function Cart() {
 
     // Add this item to cart
     const removeFromCart = (id) => {
-        console.log(cart);
         const newCart = cart.filter((item) => item.id != id);
         setCart(newCart);
-        console.log(newCart);
     }
 
     useEffect(() => {
